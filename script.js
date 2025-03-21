@@ -1,10 +1,21 @@
-function changeSticker() {
-    const stickers = [
-        "https://i.imgur.com/6bK5Qp0.png",
-        "https://i.imgur.com/MhF9jmw.png",
-        "https://i.imgur.com/9D8PjI6.png"
-    ];
-    
-    const randomIndex = Math.floor(Math.random() * stickers.length);
-    document.getElementById("princessSticker").src = stickers[randomIndex];
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("hearts");
+    document.body.appendChild(heart);
+
+    const size = Math.random() * 20 + 10;
+    heart.style.width = `${size}px`;
+    heart.style.height = `${size}px`;
+
+    heart.style.left = Math.random() * window.innerWidth + "px";
+    heart.style.top = window.innerHeight + "px";
+
+    heart.style.animationDuration = Math.random() * 2 + 3 + "s";
+
+    setTimeout(() => {
+        heart.remove();
+    }, 4000);
 }
+
+// Tạo trái tim liên tục mỗi 300ms
+setInterval(createHeart, 300);
